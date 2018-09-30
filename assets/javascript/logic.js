@@ -41,7 +41,7 @@ startTime();
       // Grabs user input
     var trainName = $("#train-name").val().trim();
     var trainDestination = $("#train-destination").val().trim();
-    var firstTrainTime = moment($("#train-time").val().trim(), "MM:mm").subtract(1, "years").format("X");
+    var firstTrainTime = moment($("#train-time").val().trim(), "HH:mm").subtract(10, "years").format("X");
     var trainFrequency = $("#time-frequency").val().trim();
 
   // Creates local "temporary" object for holding train schedule data
@@ -70,22 +70,27 @@ startTime();
   // 3. Create Firebase event for adding train schedule to the database and a row in the html when a user adds an entry
   database.ref().on("child_added", function(childSnapshot) {
   // console.log(childSnapshot.val());
-    
+  
+  
     // Store everything into a variable.
-    var data = childSnapshot.val();
-    var nameTrainName = data.nameOfTrain;
-    var trainDestination= data.trainDest;
-    var trainFrequency= data.trainFrqnc;
-    var firstTrain = data.trainTime;
+  var data = childSnapshot.val();
+  var nameTrainName = data.nameOfTrain;
+  var trainDestination= data.trainDest;
+  var trainFrequency= data.trainFrqnc;
+  var firstTrain = data.trainTime;
+// assign firebase variables to snapshots.
+
 
     let tRemainder = moment().diff(moment.unix(firstTrain), "minutes") % trainFrequency;
-      let remaingMinutes = trainFrequency - tRemainder;
+    let remaingMinutes = trainFrequency - tRemainder;
+    console.log(tRemainder);
+    console.log(trainFrequency);
     console.log(tRemainder);
       // To calculate the arrival time, add the remaingMinutes to the currrent time
-      let trainArrival = moment().add(remaingMinutes, "m").format("hh:mm A");
+      let trainArrival = moment().add(remaingMinutes, "h:mm:ss A").format("HH:mm:ss");
         console.log(firstTrain);
 
-      // Create the new rowre
+     // Create the new rowre
     var newRow = $("<tr>").append(
       $("<td>").text(nameTrainName),
       $("<td>").text(trainDestination),
