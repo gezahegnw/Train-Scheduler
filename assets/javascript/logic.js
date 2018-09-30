@@ -1,4 +1,5 @@
  // Initialize Firebase
+ // Initialize Firebase
  var config = {
   apiKey: "AIzaSyCdf-MWRF-tyhgauPeIK2CqScsaUg0b54I",
   authDomain: "train-scheduler-74719.firebaseapp.com",
@@ -83,13 +84,8 @@ startTime();
 
     let tRemainder = moment().diff(moment.unix(firstTrain), "minutes") % trainFrequency;
     let remaingMinutes = trainFrequency - tRemainder;
-    console.log(tRemainder);
-    console.log(trainFrequency);
-    console.log(tRemainder);
-      // To calculate the arrival time, add the remaingMinutes to the currrent time
-      let trainArrival = moment().add(remaingMinutes, "h:mm:ss A").format("HH:mm:ss");
-        console.log(firstTrain);
-
+  //    // To calculate the arrival time, add the remaingMinutes to the currrent time
+      let trainArrival = moment().add(remaingMinutes, "m").format("HH:mm:ss");
      // Create the new rowre
     var newRow = $("<tr>").append(
       $("<td>").text(nameTrainName),
