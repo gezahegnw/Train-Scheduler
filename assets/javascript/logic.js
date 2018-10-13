@@ -84,7 +84,7 @@ startTime();
     let tRemainder = moment().diff(moment.unix(firstTrain), "minutes") % trainFrequency;
     let remaingMinutes = trainFrequency - tRemainder;
   //    // To calculate the arrival time, add the remaingMinutes to the currrent time
-      let trainArrival = moment().add(remaingMinutes, "m").format("HH:mm:ss");
+      let trainArrival = moment().add(remaingMinutes, "m").format("HH:mm");
      // Create the new rowre
     var newRow = $("<tr>").append(
       $("<td>").text(nameTrainName),
