@@ -11,6 +11,16 @@ body{
     font-weight: 700;
     margin-top: 10px;
 }
+/*this for logic for train added popup message div*/
+.add-train {
+    width: auto;
+    height: auto;
+    background-color: #1aa501b4;
+    color: #d6d8d7;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 20px;
+}
 h1{
     font-size: 30px;
 }

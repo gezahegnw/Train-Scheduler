@@ -1,11 +1,12 @@
  // Initialize Firebase
  var config = {
-  apiKey: "AIzaSyCdf-MWRF-tyhgauPeIK2CqScsaUg0b54I",
-  authDomain: "train-scheduler-74719.firebaseapp.com",
-  databaseURL: "https://train-scheduler-74719.firebaseio.com",
-  projectId: "train-scheduler-74719",
-  storageBucket: "train-scheduler-74719.appspot.com",
-  messagingSenderId: "908607121482"
+  apiKey: "AIzaSyC-meoMUnOwj3WDydGY_s9mhH3pGHc6chE",
+  authDomain: "train-schedule-b5c96.firebaseapp.com",
+  databaseURL: "https://train-schedule-b5c96.firebaseio.com",
+  projectId: "train-schedule-b5c96",
+  storageBucket: "train-schedule-b5c96.appspot.com",
+  messagingSenderId: "905633595351",
+  appId: "1:905633595351:web:a8833f7ea8bef16e"
 };
 firebase.initializeApp(config);
 // Create a variable to reference the database.
@@ -55,8 +56,10 @@ startTime();
   //get timer functioning
     // Uploads train schedule data to the database
     database.ref().push(newTrain);
-
-   alert(" has been successfully added");
+  
+    let trainAdded = document.getElementById('train-added').innerHTML = 'Train has been successfully added';
+    document.getElementById('train-added').setAttribute("class", "add-train");
+  // alert(" has been successfully added");
       
 
   // Clears all of the text-boxes
