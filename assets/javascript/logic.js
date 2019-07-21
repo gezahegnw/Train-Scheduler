@@ -60,7 +60,7 @@ startTime();
     let trainAdded = document.getElementById('train-added').innerHTML = 'Train has been successfully added';
     document.getElementById('train-added').setAttribute("class", "add-train");
   // alert(" has been successfully added");
-      
+      trainAdded.innerHTML = '';
 
   // Clears all of the text-boxes
   $("#train-name").val("");
@@ -88,7 +88,7 @@ startTime();
     let remaingMinutes = trainFrequency - tRemainder;
   //    // To calculate the arrival time, add the remaingMinutes to the currrent time
       let trainArrival = moment().add(remaingMinutes, "m").format("HH:mm");
-     // Create the new rowre
+     // Create the new table row
     var newRow = $("<tr>").append(
       $("<td>").text(nameTrainName),
       $("<td>").text(trainDestination),
